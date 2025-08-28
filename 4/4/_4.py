@@ -1,0 +1,51 @@
+﻿
+# ماتریس بولی اول ما
+a = [
+  [1, 0, 1],
+  [0, 1, 0]
+]
+
+# ماتریس بولی دوم ما
+b = [
+  [0, 1],
+  [1, 0],
+  [0, 1]
+]
+
+# پیدا کردن ابعاد ماتریس‌ها
+rows_a = len(a)
+cols_a = len(a[0])
+rows_b = len(b)
+cols_b = len(b[0])
+
+# بررسی اینکه آیا ضرب بولی امکان‌پذیر است؟
+if cols_a == rows_b:
+  print("zarbboly in possible.")
+  
+  # یک جدول خالی برای نتیجه ضرب می‌سازیم
+  result = []
+  
+  # حالا شروع می‌کنیم به ضرب
+  for x in range(rows_a):
+    # یک سطر جدید برای نتیجه
+    new_row = []
+    for y in range(cols_b):
+      # مقدار هر خانه را با یک متغیر موقت شروع می‌کنیم
+      cell_value = 0
+      for z in range(cols_a):
+        # این جا جادوی ضرب بولی اتفاق می‌افتد
+        # a[x][z] AND b[z][y]
+        # سپس با OR جمع می‌کنیم
+        cell_value = cell_value or (a[x][z] and b[z][y])
+      
+      new_row.append(cell_value)
+    
+    result.append(new_row)
+  
+  # نتیجه نهایی را چاپ می‌کنیم
+  print("result of zarbboly:")
+  for row in result:
+    print(row)
+
+else:
+  print("zarbboly is not possible . firstmatrix colums count is not equal with secendmatrix rows count")
