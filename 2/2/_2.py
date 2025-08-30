@@ -1,15 +1,40 @@
-﻿import networkx as nx
+﻿from xml.dom import ValidationErr
+from xmlrpc.client import TRANSPORT_ERROR
+import networkx as nx
 import matplotlib.pyplot as plt
 
-# این جدول  ماست!
+
 # اگر عدد 1 رو ببینی، یعنی یک فلش از اونجا به اونجا داریم.
 # مثلاً در سطر 0، ستون 1 عدد 1 هست، یعنی یک فلش از نقطه 0 به نقطه 1 داریم.
-my_grid = [
-    [0, 1, 0, 0],
-    [0, 0, 1, 0],
-    [0, 0, 0, 1],
-    [1, 0, 0, 0]
-]
+try:
+    n = int(input("please enter youtr matrix size in number:"))
+except ValueError:
+    print("Error : size of matrix must be posetive number")
+    exit()
+    
+#اینجا یه لیست خالی درست میکنیم
+my_grid = []
+
+print(f" \n please enter {n} row of number from 0-1 with space")
+
+# قدم سوم: گرفتن ورودی برای هر سطر و ساخت ماتریس
+
+for i in range (n):
+    while True:
+        try:
+            row_str = input (f"row {i+1}:")
+            row = [int(x) for x in row_str.split()]
+            
+            if len(row) == n:
+                my_grid.append(row)
+                break
+            else:
+                print(f"error num of onsor of this row is not suit for ({len(row)}) with matrix size of {n}")
+        except ValueError:
+            print("error: pls enter 0 or 1 with space")
+            
+    
+
 
 # یک جعبه خالی می‌سازیم.
 my_graph = nx.DiGraph()
@@ -32,7 +57,6 @@ for x in range(number_of_points):
 nx.draw(my_graph, with_labels=True, node_color='skyblue', node_size=1000, font_size=16)
 
 # به نقاشی‌مون یک اسم می‌دیم.
-plt.title("نقاشی فلش دار ما")
+plt.title("نمایش گراف بر اساس ماتریس")
 
-# و در آخر، نقاشی‌مان را نشان می‌دهیم!
 plt.show()
