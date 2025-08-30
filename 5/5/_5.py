@@ -1,14 +1,31 @@
 ﻿# یک جدول جادویی (ماتریس) آماده می‌کنیم.
 # این ماتریس باید مربعی باشد (تعداد سطر و ستون یکسان).
-m = [
-    [0, 1, 0],
-    [0, 0, 1],
-    [1, 0, 0]
-]
+while True:
+    try:
+        n_a = int(input("pls enter matrix A size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+matrix_a = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                matrix_a.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
 
 # از شما می‌خواهیم بگویید چند بار این کار را تکرار کنیم
 try:
-    n = int(input("pls enter a number for 'n': "))
+    n = int(input("pls enter a number for 'n'(mean Rn that you want): "))
 except ValueError:
     print("pls enter just numbers.")
     exit()
@@ -49,14 +66,14 @@ def boolean_multiply(matrix1, matrix2):
 # اگر n برابر 1 بود، همان ماتریس اولی را نشان می‌دهیم
 if n == 1:
     print(f"result to powers of R {n}:")
-    for row in m:
+    for row in matrix_a:
         print(row)
 else:
     # یک کپی از ماتریس اصلی برای شروع کار می‌سازیم
-    result = m
+    result = matrix_a
     # حالا n-1 بار ضرب را تکرار می‌کنیم
     for i in range(n - 1):
-        result = boolean_multiply(result, m)
+        result = boolean_multiply(result, matrix_a)
 
     # و در نهایت، نتیجه نهایی را چاپ می‌کنیم
     print(f"result to powers of R {n}:")
