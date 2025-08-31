@@ -1,17 +1,52 @@
 ﻿# ماتریس مجاورت گراف کوچک‌تر (G1)
-g1 = [
-    [0, 1, 0],
-    [1, 0, 1],
-    [0, 1, 0]
-]
+while True:
+    try:
+        n_a = int(input("pls enter matrix A size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+g1 = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                g1.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
+
 
 # ماتریس مجاورت گراف بزرگ‌تر (G2)
-g2 = [
-    [0, 1, 1, 0],
-    [1, 0, 1, 1],
-    [1, 1, 0, 1],
-    [0, 1, 1, 0]
-]
+while True:
+    try:
+        n_a = int(input("pls enter matrix A size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+g2 = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                g2.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
+
 
 # پیدا کردن تعداد نقاط در هر دو گراف
 n1 = len(g1)
