@@ -1,12 +1,29 @@
 ﻿# ماتریس مجاورت یک گراف را تعریف می‌کنیم.
 # این ماتریس باید مربعی باشد.
 # 1 یعنی راه دارد، 0 یعنی راه ندارد.
-adj_matrix = [
-    [0, 1, 0, 0],
-    [1, 0, 1, 0],
-    [0, 1, 0, 1],
-    [0, 0, 1, 0]
-]
+while True:
+    try:
+        n_a = int(input("pls enter matrix A size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+adj_matrix = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                adj_matrix.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
+
 
 # تعداد سطرها و ستون‌های ماتریس را پیدا می‌کنیم
 n = len(adj_matrix)
