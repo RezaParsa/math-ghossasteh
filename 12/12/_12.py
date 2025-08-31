@@ -115,14 +115,30 @@ def print_degrees(adj_matrix, title):
     print("\n" + "-"*30 + "\n")
 
 # --- مثال استفاده ---
+while True:
+    try:
+        n_a = int(input("pls enter matrix 1 size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
 
+adj_matrix1 = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                adj_matrix1.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
 # مثال 1: مدار اویلری (تمام گره‌ها با درجه زوج)
-adj_matrix1 =[
-    [0, 1, 1, 0],
-    [1, 0, 1, 1],
-    [1, 1, 0, 1],
-    [0, 1, 1, 0]
-]
+
 print_degrees(adj_matrix1, "--- node degree in example 1 ---")
 
 eulerian_path1 = find_eulerian_path(adj_matrix1)
@@ -131,13 +147,31 @@ if eulerian_path1:
 print("\n" + "-"*30 + "\n")
 
 # مثال 2: مسیر اویلری (دو گره با درجه فرد)
-adj_matrix2 = [
-    [0, 1, 0, 0, 1],
-    [1, 0, 1, 0, 0],
-    [0, 1, 0, 1, 0],
-    [0, 0, 1, 0, 1],
-    [1, 0, 0, 1, 0]
-]
+while True:
+    try:
+        n_a = int(input("pls enter matrix 2 size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+adj_matrix2 = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                adj_matrix2.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
+
+
+
 print_degrees(adj_matrix2, "--- node degree in example 2 ---")
 
 eulerian_path2 = find_eulerian_path(adj_matrix2)
@@ -145,13 +179,30 @@ if eulerian_path2:
     print("oel path found:", " -> ".join(map(str, eulerian_path2)))
 print("\n" + "-"*30 + "\n")
 
+
 # مثال 3: بدون مسیر اویلری (سه گره با درجه فرد)
-adj_matrix3 = [
-    [0, 1, 1, 0],
-    [1, 0, 1, 1],
-    [1, 1, 0, 0],
-    [0, 1, 0, 0]
-]
+while True:
+    try:
+        n_a = int(input("pls enter matrix 3 size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+adj_matrix3 = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                adj_matrix3.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
 print_degrees(adj_matrix3, "--- node degree in example 3 ---")
 
 find_eulerian_path(adj_matrix3)
