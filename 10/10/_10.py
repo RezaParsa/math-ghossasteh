@@ -1,19 +1,56 @@
 ﻿
 # ماتریس متناظر با رابطه R
 # این ماتریس باید مربعی باشد.
-r_matrix = [
-    [0, 1, 0],
-    [0, 0, 1],
-    [1, 0, 0]
-]
+while True:
+    try:
+        n_a = int(input("pls enter matrix R size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+r_matrix = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                r_matrix.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
+
+
+#take S_Matrix 
+while True:
+    try:
+        n_a = int(input("pls enter matrix S size: "))
+        break
+    except ValueError:
+        print("error : matrix size must be posetive num.")
+
+s_matrix = []
+print(f"pls {n_a} row of num must be enter with space:")
+
+for i in range(n_a):
+    while True:
+        try:
+            row_str = input(f"row {i+1}: ")
+            row = [int(x) for x in row_str.split()]
+            if len(row) == n_a:
+                s_matrix.append(row)
+                break
+            else:
+                print(f"error: count of this row ({len(row)}) wiht size of matrix  ({n_a}) is not suit pls renter it .")
+        except ValueError:
+            print("error enter nums with space .")
 
 # ماتریس متناظر با رابطه S
 # تعداد ستون‌های این ماتریس باید با تعداد سطرهای ماتریس R برابر باشد.
-s_matrix = [
-    [0, 1, 0],
-    [1, 0, 1],
-    [0, 1, 0]
-]
 
 # پیدا کردن ابعاد ماتریس‌ها
 rows_r = len(r_matrix)
